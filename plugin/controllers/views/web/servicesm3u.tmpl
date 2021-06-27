@@ -1,0 +1,14 @@
+#EXTM3U 
+#EXTVLCOPT--http-reconnect=true
+#for $service in $services
+#EXTINF:-1,$service.servicename
+#set $_sref=$service.servicereference
+#if _sref and u"//127.0.0.1%3" in _sref
+#set $_sref=_sref.split(u":")[10].split(u"//127.0.0.1%3")[-1]
+#echo u"http://"+$auth+$host.split(u":")[0]+u":"+_sref[1:]
+#elif _sref
+#EXTVLCOPT:program=$service.program
+#echo u"http://"+$auth+$host+u"/"+_sref
+#end if
+
+#end for
